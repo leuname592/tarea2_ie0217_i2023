@@ -24,14 +24,58 @@ OTROS ACUERDOS EN EL SOFTWARE.
 */
 
 #ifndef HEADER_SORT_HPP
-#def HEADER_SORT_HPP
+#define HEADER_SORT_HPP
 
+#include <iostream>
+#include <time.h>
+using std::cout;
+using std::endl;
+
+/**
+ * @brief This function is used to print the values of the array
+ * 
+ * @param arr Array of elements
+ */
+void print_array(int arr[]);
+
+/**
+ * @brief This function is used to shuffle the values of the array once they are sorted
+ * 
+ * @param arr Array of elements
+ */
+void shuffle_array(int arr[]);
+
+/**
+ * @brief Bubble sort the values of the array iterating through it
+ * 
+ * @param arr Array of elements
+ * @param n Size of the array
+ */
 void bubbleSort(int arr[], int n);
 
+/**
+ * @brief Selection sort the values of the array iterating through it
+ * 
+ * @param arr Array of elements
+ * @param n Size of the array
+ */
 void selectionSort(int arr[], int n);
 
+/**
+ * @brief Insertion sorting the values of the array iterating through it
+ * 
+ * @param arr Array of elements
+ * @param n Size of the array
+ */
 void insertionSort(int arr[], int n);
 
+/**
+ * @brief Quicksort the values of the array iterating through it using recursion
+ * 
+ * @param arr Array of elements
+ * @param low First element index in the array
+ * @param high Last element index in the array
+ */
 void quickSort(int arr[], int low, int high);
 
 #endif /* HEADER_SORT_HPP */
