@@ -1,6 +1,6 @@
 ## Templates section
 
-- [x] Cleaning Includes:
+- [x] Cleaning Includes:\
 Removing:
 ```cpp
 #include <stdexcept>
