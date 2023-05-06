@@ -26,9 +26,13 @@ OTROS ACUERDOS EN EL SOFTWARE.
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <stdexcept>
 #include <functional>
 
+/**
+ * @brief Clase que crea un Stack LIFO con un template para usar varios tipos dde datos
+ * 
+ * @tparam T 
+ */
 template<typename T>
 class Stack {
 private:
@@ -36,7 +40,7 @@ private:
 
 public:
   void push(T value) {
-    data_.push_back(value);
+    data_.push_back(value); // Adds a new element at the end of the stack
   }
 
   T pop() {
@@ -44,22 +48,23 @@ public:
       throw std::out_of_range("Stack is empty");
     }
     T value = data_.back();
-    data_.pop_back();
+    data_.pop_back(); // Removes the last element in the stack and returns the value
     return value;
   }
 
   void clear() {
-    data_.clear();
+    data_.clear(); // Removes all elements from the stack
   }
 
   bool empty() const {
-    return data_.empty();
+    return data_.empty(); //true if the container size is 0, false otherwise.
   }
 
   std::size_t size() const {
-    return data_.size();
+    return data_.size(); //Return stack size
   }
 
+  //Iterating stack and performing func
   void foreach(const std::function<void(T&)>& func) {
     std::for_each(data_.begin(), data_.end(), func);
   }
@@ -73,10 +78,12 @@ int main() {
 
   std::cout << "Stack size: " << s.size() << std::endl;
 
+  //Printing values of the stack with a lambda function
   s.foreach([](int& value) {
     std::cout << "Value: " << value << std::endl;
   });
 
+  //Exception handling
   try {
     while (!s.empty()) {
       int value = s.pop();
@@ -87,5 +94,31 @@ int main() {
     std::cerr << "Exception: " << e.what() << std::endl;
   }
 
+  //Working with float data type
+  Stack<float> f;
+  f.push(777.4);
+  f.push(77.0);
+  f.push(7.23123);
+  
+  std::cout<<std::endl<<std::endl<<"Adding lines with float data type:"<<std::endl;
+  std::cout << "Stack size: " << f.size() << std::endl;
+
+  //Printing values of the stack with a lambda function
+  f.foreach([](float& value) {
+    std::cout << "Value: " << value << std::endl;
+  });
+
+  /*
+  //This will trigger an out_of_range exception
+  try {
+    while (true) {
+      int value = s.pop();
+      std::cout << "Popped value: " << value << std::endl;
+    }
+    std::cout << "Stack size: " << s.size() << std::endl;
+  } catch (const std::exception& e) {
+    std::cerr << "Exception: " << e.what() << std::endl;
+  }
+  */
   return 0;
 }
