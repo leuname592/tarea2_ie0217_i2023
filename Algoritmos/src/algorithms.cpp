@@ -65,7 +65,7 @@ void insertionSort(int arr[], int n) {
 }
 
 void quickSort(int arr[], int low, int high) {
-    int temp;
+    int temp=0;
     // Base case for recursion
     if (low < high) {
         // Choose the last element of the array as the pivot

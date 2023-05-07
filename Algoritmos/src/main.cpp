@@ -41,7 +41,7 @@ int main(){
     shuffle_array(arr);
     cout<<"Array before sorting"<<endl;
     print_array(arr);
-    quickSort(arr,ZERO,ARRAY_SIZE);
+    quickSort(arr,ZERO,ARRAY_SIZE-1);
     cout<<"Array quick sorted:"<<endl;
     print_array(arr);
     cout<<endl;
